@@ -1,11 +1,16 @@
 package cn.iceyax.utils;
 
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
 import cn.iceyax.config.DatabaseInfo;
+import cn.iceyax.config.TableInfo;
+import cn.iceyax.config.db.DBField;
 import cn.iceyax.config.eu.DBType;
 
 /**
@@ -15,7 +20,7 @@ import cn.iceyax.config.eu.DBType;
  * @date 2018/5/23
  */
 public class DatabaseUtils {
-
+	
     /**
      * 获取数据库连接
      *
@@ -52,7 +57,29 @@ public class DatabaseUtils {
         return connectionRUL;
     }
 
-    /*public static List<Schame> getDbSchame(String sql){
-    	return null;
-    } */
+    
+    public static List<DBField> getTableColumns(DatabaseInfo databaseInfo,TableInfo tableInfo) throws Exception {
+        Connection connection = getConnection(databaseInfo);
+        DatabaseMetaData metaData = connection.getMetaData();
+        ResultSet resultSet = metaData.getColumns(null, null, tableInfo.getName(), null);
+        List<DBField> fieldList = new ArrayList<>();
+        while (resultSet.next()) {
+            DBField field = new DBField();
+            field.setColumnName(resultSet.getString("COLUMN_NAME"));
+            field.setDataType(resultSet.getInt("DATA_TYPE"));
+            field.setTypeName(resultSet.getString("TYPE_NAME"));
+            field.setColumnSize(resultSet.getInt("COLUMN_SIZE"));
+            field.setDecimalDigits(resultSet.getInt("DECIMAL_DIGITS"));
+            field.setNullable("YES".equalsIgnoreCase(resultSet.getString("IS_NULLABLE")));
+            field.setAutoIncrement("YES".equalsIgnoreCase(resultSet.getString("IS_AUTOINCREMENT")));
+            field.setRemarks(resultSet.getString("REMARKS"));
+            field.setColumnDef(resultSet.getObject("COLUMN_DEF"));
+            field.setCharOctetLength(resultSet.getInt("CHAR_OCTET_LENGTH"));
+
+            fieldList.add(field);
+        }
+
+        return fieldList;
+    }
+    
 }

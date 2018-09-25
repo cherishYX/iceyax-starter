@@ -15,7 +15,14 @@ import cn.iceyax.model.DataModel;
 import cn.iceyax.model.JavaClassModel;
 import cn.iceyax.model.JavaImport;
 import cn.iceyax.utils.PathUtils;
-
+/**
+ * 
+ * ClassName: AbstractGeneratedMapperClass 
+ * @Description: 創建Mapper
+ * @author yanx
+ * @email 123190875@qq.com
+ * @date 2018年9月20日 下午2:19:13
+ */
 public class AbstractGeneratedMapperClass extends AbstractGeneratedFile{
 
 	private JavaClassModel model;
@@ -31,8 +38,6 @@ public class AbstractGeneratedMapperClass extends AbstractGeneratedFile{
 		String packageName = p.getBasePackage() + "." + p.getDaoPackage(); 
 		model.setPackageName(packageName);
 		
-		List<JavaImport> imports = new ArrayList<>();
-		
 		// 实体类名   Mapper类名
 		String upperModelName = CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, simpleTableName); 
 		model.setClassName(upperModelName + "Mapper");
@@ -41,7 +46,8 @@ public class AbstractGeneratedMapperClass extends AbstractGeneratedFile{
 		String modelName = upperModelName + CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, p.getEntityPackage());
 		model.setModelClassName(modelName);
 		
-		String entityBasePath = p.getBasePackage() + "." + p.getEntityPackage();
+		List<JavaImport> imports = new ArrayList<>();
+		String entityBasePath = PathUtils.getBasePackagePath(generatorParam, PackageType.ENTITY);
 		JavaImport im = new JavaImport();
 		im.setName(entityBasePath + "." + modelName);
 		imports.add(im);

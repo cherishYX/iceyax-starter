@@ -31,6 +31,15 @@ public class BaseTest {
 		packageInfo.setBasePackage("cn.ice.web");
 		packageInfo.setEntityPackage("entity");
 		packageInfo.setResourcePath("src\\main\\java");
+		
+		/*packageInfo.setAuthor("yanx");
+		packageInfo.setDaoPackage("dao");
+		packageInfo.setProjectPath("D:\\ljjworkspace\\ljj-server");
+		packageInfo.setJavaPath("src\\main\\java");
+		packageInfo.setBasePackage("com.cfzq.ljj.intf");
+		packageInfo.setEntityPackage("model");
+		packageInfo.setExtendsPath("user");
+		packageInfo.setResourcePath("src\\main\\resources\\mapper");*/
 		return packageInfo;
 	}
 	private static DatabaseInfo getDbInfo(){
@@ -47,15 +56,15 @@ public class BaseTest {
 	private static List<TableInfo> getTables(){
 		List<TableInfo> tables = new ArrayList<>();
 		TableInfo t = new TableInfo();
-		t.setName("t_area");
-		t.setKey("area_code");
+		t.setName("t_ljj_position_mapper");
+		// t.setKey("area_code");
 		t.setKeyType("Single");
 		List<String> query = new ArrayList<>();
-		query.add("area_code");
+		/*query.add("area_code");
 		query.add("tree_name");
-		query.add("area_name");
+		query.add("area_name");*/
 		t.setQuery(query);
-		t.setRemark("区域信息");
+		t.setRemark("CRM岗位与乐经纪名片岗位展示匹配规则");
 		tables.add(t);
 		return tables;
 	}

@@ -27,7 +27,10 @@ public class PackageInfo {
      * config包名
      */
     private String configPackage;
-
+    /**
+     * 扩展路径
+     */
+    private String extendsPath;
     /**
      * controller包名
      */
