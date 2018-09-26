@@ -26,7 +26,7 @@ public class BaseTest {
 		PackageInfo packageInfo = new PackageInfo();
 		packageInfo.setAuthor("yanx");
 		packageInfo.setDaoPackage("dao");
-		packageInfo.setProjectPath("D:\\yxworkspace\\iceyax-boot-server");
+		packageInfo.setProjectPath("D:\\yxworkspace\\iceyax-starter");
 		packageInfo.setJavaPath("src\\main\\java");
 		packageInfo.setBasePackage("cn.ice.web");
 		packageInfo.setEntityPackage("entity");

@@ -35,7 +35,7 @@ public class AbstractGeneratedMapperClass extends AbstractGeneratedFile{
 		String simpleTableName = getSimpleTableName(tableName,generatorParam.getExclude());
 		// 包名
 		PackageInfo p = generatorParam.getPackageInfo();
-		String packageName = p.getBasePackage() + "." + p.getDaoPackage(); 
+		String packageName = PathUtils.getBasePackagePath(generatorParam, PackageType.DAO); 
 		model.setPackageName(packageName);
 		
 		// 实体类名   Mapper类名
