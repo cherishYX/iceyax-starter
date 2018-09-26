@@ -26,11 +26,12 @@ public class BaseTest {
 		PackageInfo packageInfo = new PackageInfo();
 		packageInfo.setAuthor("yanx");
 		packageInfo.setDaoPackage("dao");
-		packageInfo.setProjectPath("D:\\yxworkspace\\iceyax-starter");
+		packageInfo.setProjectPath("D:\\yxworkspace\\iceyax-boot-server");
 		packageInfo.setJavaPath("src\\main\\java");
 		packageInfo.setBasePackage("cn.ice.web");
 		packageInfo.setEntityPackage("entity");
 		packageInfo.setResourcePath("src\\main\\java");
+		packageInfo.setExtendsPath("area");
 		
 		/*packageInfo.setAuthor("yanx");
 		packageInfo.setDaoPackage("dao");
@@ -56,15 +57,15 @@ public class BaseTest {
 	private static List<TableInfo> getTables(){
 		List<TableInfo> tables = new ArrayList<>();
 		TableInfo t = new TableInfo();
-		t.setName("t_ljj_position_mapper");
-		// t.setKey("area_code");
-		t.setKeyType("Single");
+		t.setName("t_area");
+		//t.setKey("area_code");//主键字段名称
+		//t.setKeyType("Single");
 		List<String> query = new ArrayList<>();
 		/*query.add("area_code");
 		query.add("tree_name");
 		query.add("area_name");*/
 		t.setQuery(query);
-		t.setRemark("CRM岗位与乐经纪名片岗位展示匹配规则");
+		t.setRemark("地区信息表");
 		tables.add(t);
 		return tables;
 	}

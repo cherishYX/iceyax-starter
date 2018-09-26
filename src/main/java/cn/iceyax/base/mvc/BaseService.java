@@ -16,9 +16,9 @@ public interface BaseService<T extends BaseEntity,Q extends BaseReqPageVO> {
 	
 	int update(T t);
 	
-	int delete(Object id);
+	int delete(T t);
 	
-	T get(Object id);
+	T get(T t);
 	/**
 	 * 
 	 * @Description: 单表分页

@@ -1,8 +1,5 @@
 package cn.iceyax.base.mvc;
 
-import java.util.List;
-
-import cn.iceyax.base.req.BaseReqPageVO;
 /**
  * 
  * ClassName: BaseMapper 
@@ -17,9 +14,9 @@ public interface BaseMapper<T extends BaseEntity/*,Q extends BaseReqPageVO*/> {
 	
 	int update(T t);
 	
-	int delete(Object id);
+	int delete(T t);
 	
-	T get(Object id);
+	T get(T t);
 	
 	/*List<T> list(Q q);
 	
