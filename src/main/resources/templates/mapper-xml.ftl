@@ -29,19 +29,12 @@
   <select id="get" resultMap="BaseResultMap" parameterType="${modelClass}">
   	select <include refid="baseColumnList"/>
   		from <include refid="tableName"/>
-  	<where>
-  		<#list jxms as jx>
-		<#if jx.jdbcType == 'VARCHAR' || jx.jdbcType == 'CHAR'>
-		<if test="${jx.propertyName!''} != null and ${jx.propertyName!''} != ''">
-			and ${jx.columnName!''} = <@alertChar/>{${jx.propertyName!''}}
-		</if>
-		<#else>
-		<if test="${jx.propertyName!''} != null">
-			and ${jx.columnName!''} = <@alertChar/>{${jx.propertyName!''}}
-		</if>
-		</#if>
-  		</#list>
-  	</where>
+  	where
+	<#list jxms as jx>
+  	<#if jx.isKey>
+  		${jx.columnName!''} = <@alertChar/>{${jx.propertyName!''}}
+  	</#if>
+  	</#list>
   </select>
   <!--添加-->
   <insert id="add">
@@ -58,35 +51,21 @@
   		${jx.columnName!''} = <@alertChar/>{${jx.propertyName!''}},
   	</#list>
 	</set>
-	<where>
-		<#list jxms as jx>
-		<#if jx.jdbcType == 'VARCHAR' || jx.jdbcType == 'CHAR'>
-		<if test="${jx.propertyName!''} != null and ${jx.propertyName!''} != ''">
-			and ${jx.columnName!''} = <@alertChar/>{${jx.propertyName!''}}
-		</if>
-		<#else>
-		<if test="${jx.propertyName!''} != null">
-			and ${jx.columnName!''} = <@alertChar/>{${jx.propertyName!''}}
-		</if>
-		</#if>
-  		</#list>
-	</where>
+	where
+	<#list jxms as jx>
+  	<#if jx.isKey>
+  		${jx.columnName!''} = <@alertChar/>{${jx.propertyName!''}}
+  	</#if>
+  	</#list>				
   </update>
   <!--删除-->
   <delete id="delete">
   	delete <include refid="tableName"/>
-  	<where>
-  		<#list jxms as jx>
-		<#if jx.jdbcType == 'VARCHAR' || jx.jdbcType == 'CHAR'>
-		<if test="${jx.propertyName!''} != null and ${jx.propertyName!''} != ''">
-			and ${jx.columnName!''} = <@alertChar/>{${jx.propertyName!''}}
-		</if>
-		<#else>
-		<if test="${jx.propertyName!''} != null">
-			and ${jx.columnName!''} = <@alertChar/>{${jx.propertyName!''}}
-		</if>
-		</#if>
-  		</#list>
-  	</where>
+  	where
+  	<#list jxms as jx>
+  	<#if jx.isKey>
+  		${jx.columnName!''} = <@alertChar/>{${jx.propertyName!''}}
+  	</#if>
+	</#list>		
   </delete>
 </mapper>

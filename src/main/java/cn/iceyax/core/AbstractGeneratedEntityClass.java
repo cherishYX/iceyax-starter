@@ -61,6 +61,7 @@ public class AbstractGeneratedEntityClass extends AbstractGeneratedFile{
 				String classFullName = DatabaseMapperContants.getMapperJavaClassName(f.getTypeName());
 				Class clazz = Class.forName(classFullName);
 				jf.setType(clazz.getSimpleName());
+				jf.setIsKey(f.isPrimaryKey());
 				fields.add(jf);
 				if(!classFullName.startsWith("java.lang") && !setImports.contains(classFullName)){
 					setImports.add(classFullName);

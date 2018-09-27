@@ -61,7 +61,9 @@ public class DatabaseUtils {
     public static List<DBField> getTableColumns(DatabaseInfo databaseInfo,TableInfo tableInfo) throws Exception {
         Connection connection = getConnection(databaseInfo);
         DatabaseMetaData metaData = connection.getMetaData();
-        ResultSet resultSet = metaData.getColumns(null, null, tableInfo.getName(), null);
+        String tableName = tableInfo.getName();
+        String primaryKeyFiledName = getTablePrimaryKey(metaData, tableName);
+        ResultSet resultSet = metaData.getColumns(null, null,tableName , null);
         List<DBField> fieldList = new ArrayList<>();
         while (resultSet.next()) {
             DBField field = new DBField();
@@ -76,10 +78,22 @@ public class DatabaseUtils {
             field.setColumnDef(resultSet.getObject("COLUMN_DEF"));
             field.setCharOctetLength(resultSet.getInt("CHAR_OCTET_LENGTH"));
 
+            if (field.getColumnName().equalsIgnoreCase(primaryKeyFiledName)) {
+                field.setPrimaryKey(true);
+            } else {
+                field.setPrimaryKey(false);
+            }
             fieldList.add(field);
         }
 
         return fieldList;
     }
     
+    protected static String getTablePrimaryKey(DatabaseMetaData metaData, String tableName) throws Exception {
+        ResultSet rs = metaData.getPrimaryKeys(null, null, tableName);
+        while (rs.next()) {
+            return rs.getString("COLUMN_NAME");
+        }
+        return null;
+    }
 }

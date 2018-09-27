@@ -57,6 +57,7 @@ public class AbstractGeneratedXml extends AbstractGeneratedFile{
 				xj.setColumnName(f.getColumnName());
 				xj.setPropertyName(CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, f.getColumnName()));
 				xj.setJdbcType(f.getTypeName());
+				xj.setIsKey(f.isPrimaryKey());
 				mappers.add(xj);
 			}
 			model.setJxms(mappers);

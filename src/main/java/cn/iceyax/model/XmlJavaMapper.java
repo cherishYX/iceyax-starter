@@ -7,6 +7,10 @@ import lombok.Setter;
 @Getter
 public class XmlJavaMapper {
 	/**
+	 * 是否主键字段
+	 */
+	private Boolean isKey;
+	/**
 	 * 表列名
 	 */
 	private String columnName;

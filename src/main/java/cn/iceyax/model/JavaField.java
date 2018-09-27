@@ -15,7 +15,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class JavaField {
-
+	/**
+	 * 是否主键
+	 */
+	private Boolean isKey = false;
     /**
      * private, protected, public
      */
