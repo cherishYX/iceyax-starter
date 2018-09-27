@@ -16,11 +16,11 @@ import cn.iceyax.model.HelloWorldModel;
  * @email 123190875@qq.com
  * @date 2018年9月18日 上午9:52:09
  */
-public class AbstractGeneratedHelloWorldFile extends AbstractGeneratedFile{
+public class AbstractGeneratedBannerFile extends AbstractGeneratedFile{
 
 	private String fileName;
 	
-	public AbstractGeneratedHelloWorldFile(GeneratorParam generatorParam,TableInfo tableInfo){
+	public AbstractGeneratedBannerFile(GeneratorParam generatorParam,TableInfo tableInfo){
 		super(generatorParam);
 		dataModel = new HelloWorldModel();
 		

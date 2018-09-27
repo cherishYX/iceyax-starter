@@ -1,14 +1,14 @@
 package cn.iceyax.api;
 
 import cn.iceyax.config.GeneratorParam;
-import cn.iceyax.core.AbstractGeneratedHelloWorldFile;
+import cn.iceyax.core.AbstractGeneratedBannerFile;
 
 public class TxtGenerator implements Generator{
 
 	
 	@Override
 	public void generateCode(GeneratorParam generatorParam) throws Exception {
-		AbstractGeneratedHelloWorldFile gen = new AbstractGeneratedHelloWorldFile(generatorParam,null);
+		AbstractGeneratedBannerFile gen = new AbstractGeneratedBannerFile(generatorParam,null);
 		gen.generateFile();
 	}
 

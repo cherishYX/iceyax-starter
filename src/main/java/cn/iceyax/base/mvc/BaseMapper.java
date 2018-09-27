@@ -1,5 +1,9 @@
 package cn.iceyax.base.mvc;
 
+import java.util.List;
+
+import cn.iceyax.base.req.BaseReqPageVO;
+
 /**
  * 
  * ClassName: BaseMapper 
@@ -8,7 +12,7 @@ package cn.iceyax.base.mvc;
  * @email 123190875@qq.com
  * @date 2018年9月14日 下午3:39:20
  */
-public interface BaseMapper<T extends BaseEntity/*,Q extends BaseReqPageVO*/> {
+public interface BaseMapper<T extends BaseEntity,Q extends BaseReqPageVO> {
 	
 	int add(T t);
 	
@@ -18,7 +22,7 @@ public interface BaseMapper<T extends BaseEntity/*,Q extends BaseReqPageVO*/> {
 	
 	T get(T t);
 	
-	/*List<T> list(Q q);
+	List<T> list(Q q);
 	
-	List<T> listByCondition(Q q);*/
+	List<T> listByCondition(Q q);
 }
