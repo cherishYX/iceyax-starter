@@ -76,20 +76,8 @@ public class PathUtils {
 	public static String getTargetFilePath(GeneratorParam generatorParam,String type){
 		String result = getFileBasePath(generatorParam);
 		PackageInfo packageInfo = generatorParam.getPackageInfo();
-		switch(type){
-		case PackageType.DAO:
-			result = result + packageInfo.getDaoPackage() + SPILT;
-			break;
-		case PackageType.ENTITY:
-			result = result + packageInfo.getEntityPackage() + SPILT;
-			break;
-		case PackageType.SERVICE:
-			result = result + packageInfo.getServicePackage() + SPILT;
-			break;
-		case PackageType.CONTROLLER:
-			result = result + packageInfo.getControllerPackage() + SPILT;
-			break;
-		}
+		String moduleName = type.replace(POINT, SPILT) + SPILT;
+		result += moduleName;
 		if(!StringUtils.isEmpty(packageInfo.getExtendsPath())){
 			result = result + packageInfo.getExtendsPath().replace(POINT, SPILT) + SPILT;
 		}
@@ -110,20 +98,10 @@ public class PathUtils {
 	public static String getBasePackagePath(GeneratorParam generatorParam,String type){
 		PackageInfo packageInfo = generatorParam.getPackageInfo();
 		String result = packageInfo.getBasePackage().replace("\\", ".");
-		switch(type){
-		case PackageType.DAO:
-			result = result + POINT + packageInfo.getDaoPackage();
-			break;
-		case PackageType.ENTITY:
-			result = result + POINT + packageInfo.getEntityPackage();
-			break;
-		case PackageType.SERVICE:
-			result = result + POINT + packageInfo.getServicePackage();
-			break;
-		case PackageType.CONTROLLER:
-			result = result + POINT + packageInfo.getControllerPackage();
-			break;
-		}
+
+		String moduleName = type.replace(SPILT, POINT);
+		result = result + POINT + moduleName;
+		
 		if(!StringUtils.isEmpty(packageInfo.getExtendsPath())){
 			result = result + POINT + packageInfo.getExtendsPath().replace(SPILT, POINT);
 		}
