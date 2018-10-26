@@ -33,14 +33,7 @@ public class BaseTest {
 		packageInfo.setResourcePath("src\\main\\java");
 		packageInfo.setExtendsPath("area");
 		
-		/*packageInfo.setAuthor("yanx");
-		packageInfo.setDaoPackage("dao");
-		packageInfo.setProjectPath("D:\\ljjworkspace\\ljj-server");
-		packageInfo.setJavaPath("src\\main\\java");
-		packageInfo.setBasePackage("com.cfzq.ljj.intf");
-		packageInfo.setEntityPackage("model");
-		packageInfo.setExtendsPath("user");
-		packageInfo.setResourcePath("src\\main\\resources\\mapper");*/
+		
 		return packageInfo;
 	}
 	private static DatabaseInfo getDbInfo(){
