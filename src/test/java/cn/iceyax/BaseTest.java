@@ -26,7 +26,7 @@ public class BaseTest {
 		PackageInfo packageInfo = new PackageInfo();
 		packageInfo.setAuthor("yanx");
 		packageInfo.setDaoPackage("dao");
-		packageInfo.setProjectPath("D:\\yxworkspace\\iceyax-starter");
+		packageInfo.setProjectPath("");
 		packageInfo.setJavaPath("src\\main\\java");
 		packageInfo.setBasePackage("cn.ice.web");
 		packageInfo.setEntityPackage("entity");
@@ -39,11 +39,11 @@ public class BaseTest {
 	private static DatabaseInfo getDbInfo(){
 		DatabaseInfo databaseInfo = new DatabaseInfo();
 		databaseInfo.setDbType("MySQL");
-		databaseInfo.setDbIP("127.0.0.1");
-		databaseInfo.setDbName("yapi");
-		databaseInfo.setDbPassword("root");
-		databaseInfo.setDbPort(3306);
-		databaseInfo.setDbUsername("root");
+		databaseInfo.setDbIP("");
+		databaseInfo.setDbName("");
+		databaseInfo.setDbPassword("");
+		databaseInfo.setDbPort();
+		databaseInfo.setDbUsername("");
 		return databaseInfo;
 	}
 	
