@@ -15,7 +15,7 @@ import lombok.Setter;
 @Getter
 public class TableInfo {
 	/**
-	 * 表名前綴，如：cf_ljj.t_test
+	 * 表名前綴，如：root.test
 	 */
 	private String preName;
     /**
