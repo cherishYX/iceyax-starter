@@ -9,14 +9,10 @@ public class ServiceGenTest extends BaseTest {
 
 	
 	@Test
-	public void genService(){
+	public void genService() throws Exception{
 		ServiceGenerator txt = new ServiceGenerator();
+		txt.generateCode(generatorParam);
 		ServiceImplGenerator impl = new ServiceImplGenerator();
-		try {
-			txt.generateCode(generatorParam);
-			impl.generateCode(generatorParam);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		impl.generateCode(generatorParam);
 	}
 }

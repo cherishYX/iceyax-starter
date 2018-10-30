@@ -48,9 +48,19 @@ public class AbstractGeneratedServiceImplClass extends AbstractGeneratedFile{
 		model.setClassRemark(tableInfo.getName() + "表对应"+serviceName+"实现类");
 		
 		List<JavaImport> imports = new ArrayList<>();
-		JavaImport im = new JavaImport();
-		im.setName(PathUtils.getBasePackagePath(generatorParam, PackageType.SERVICE) + "." + serviceName);
-		imports.add(im);
+		JavaImport im1 = new JavaImport();
+		im1.setName(PathUtils.getBasePackagePath(generatorParam, PackageType.SERVICE) + "." + serviceName);
+		imports.add(im1);
+		
+		JavaImport im2 = new JavaImport();
+		String mapperPath = PathUtils.getBasePackagePath(generatorParam, PackageType.DAO);
+		im2.setName(mapperPath + "." + modelClassName + "Mapper");
+		imports.add(im2);
+		
+		JavaImport im3 = new JavaImport();
+		String entityPath = PathUtils.getBasePackagePath(generatorParam, PackageType.ENTITY);
+		im3.setName(entityPath + "." + entityName);
+		imports.add(im3);
 		model.setImports(imports);
 		String servicePath = PathUtils.getTargetFilePath(generatorParam, PackageType.SERVICE);
 		fileName = servicePath + PathUtils.SPILT + IMPL + PathUtils.SPILT + model.getClassName() + ".java";

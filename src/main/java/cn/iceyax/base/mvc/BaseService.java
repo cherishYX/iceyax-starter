@@ -1,5 +1,7 @@
 package cn.iceyax.base.mvc;
 
+import java.util.List;
+
 /**
  * 
  * ClassName: BaseService 
@@ -17,4 +19,5 @@ public interface BaseService<T extends BaseEntity> {
 	
 	T get(T t);
 	
+	List<T> list();
 }

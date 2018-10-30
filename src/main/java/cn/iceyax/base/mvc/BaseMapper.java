@@ -1,5 +1,7 @@
 package cn.iceyax.base.mvc;
 
+import java.util.List;
+
 /**
  * 
  * ClassName: BaseMapper 
@@ -18,4 +20,5 @@ public interface BaseMapper<T extends BaseEntity> {
 	
 	T get(T t);
 	
+	List<T> list();
 }

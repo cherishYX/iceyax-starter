@@ -25,7 +25,7 @@
   
   <!--table name-->
   <sql id="tableName"><#if preTableName??>${preTableName}.</#if>${tableName}</sql>
-  <!--查询-->
+  <!--单条查询-->
   <select id="get" resultMap="BaseResultMap" parameterType="${modelClass}">
   	select <include refid="baseColumnList"/>
   		from <include refid="tableName"/>
@@ -36,6 +36,13 @@
   	</#if>
   	</#list>
   </select>
+  
+  <!--全部查询-->
+  <select id="list" resultMap="BaseResultMap" parameterType="${modelClass}">
+  	select <include refid="baseColumnList"/>
+  		from <include refid="tableName"/>
+  </select>
+  
   <!--添加-->
   <insert id="add">
   	insert into <include refid="tableName"/>(<include refid="baseColumnList"/>) 
