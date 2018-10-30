@@ -30,6 +30,7 @@ public class BaseTest {
 		packageInfo.setJavaPath("src\\main\\java");
 		packageInfo.setBasePackage("cn.ice.web");
 		packageInfo.setEntityPackage("entity");
+		packageInfo.setServicePackage("service");
 		packageInfo.setResourcePath("src\\main\\java");
 		packageInfo.setExtendsPath("humor");
 		

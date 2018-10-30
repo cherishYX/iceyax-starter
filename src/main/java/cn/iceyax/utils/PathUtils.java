@@ -9,7 +9,7 @@ import cn.iceyax.config.PackageInfo;
 import cn.iceyax.config.eu.PackageType;
 
 public class PathUtils {
-	private final static String SPILT = File.separator;
+	public final static String SPILT = File.separator;
 	private final static String POINT = ".";
 	/**
 	 * @Description: 返回项目根路径绝对地址</br>

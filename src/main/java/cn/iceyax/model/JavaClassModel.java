@@ -42,6 +42,8 @@ public class JavaClassModel extends DataModel {
      * 注册到注册中心的服务名
      */
     protected String serviceName;
+    /**服务父类名称*/
+    private String serviceParentName;
 
     /**
      * 需要引入的包

@@ -1,8 +1,5 @@
 package cn.iceyax.base.mvc;
 
-import java.util.List;
-
-import cn.iceyax.base.req.BaseReqPageVO;
 /**
  * 
  * ClassName: BaseService 
@@ -11,7 +8,7 @@ import cn.iceyax.base.req.BaseReqPageVO;
  * @email 123190875@qq.com
  * @date 2018年9月14日 下午3:41:41
  */
-public interface BaseService<T extends BaseEntity,Q extends BaseReqPageVO> {
+public interface BaseService<T extends BaseEntity> {
 	int add(T t);
 	
 	int update(T t);
@@ -19,28 +16,5 @@ public interface BaseService<T extends BaseEntity,Q extends BaseReqPageVO> {
 	int delete(T t);
 	
 	T get(T t);
-	/**
-	 * 
-	 * @Description: 单表分页
-	 * @param @param q
-	 * @param @return   
-	 * @return List<T>  
-	 * @throws
-	 * @author yanx
-	 * @email 123190875@qq.com
-	 * @date 2018年9月14日 下午3:44:47
-	 */
-	List<T> list(Q q);
-	/**
-	 * 
-	 * @Description: 按条件查找
-	 * @param @param q
-	 * @param @return   
-	 * @return List<T>  
-	 * @throws
-	 * @author yanx
-	 * @email 123190875@qq.com
-	 * @date 2018年9月14日 下午3:44:59
-	 */
-	List<T> listByCondition(Q q);
+	
 }
